@@ -1,0 +1,55 @@
+/*********************************** datetime ***********************************/
+
+@import "vars.less";
+@import "components.less";
+
+:global(.rdt) {
+	position: relative;
+
+	>input:extend(.form-input all) {
+		width: 112px !important;
+	}
+	&::after:extend(.dropdownAfterInput) {
+		content: '';
+		position: absolute;
+		top: 1px;
+		right: 1px;
+	}
+	&.rdtOpen {
+		
+	}
+	:global(.rdtActive) {
+		background-color: @color-c1 !important;
+	}
+	:global(.rdtToday)::before {
+		border-bottom-color: @color-c1 !important;
+	}
+
+	:global(.rdtBtn:hover),
+	:global(.rdtBtn) {
+		background: #FB573F;
+		color: #fff;
+		border-radius: 5px;
+		height: 30px;
+		line-height: 30px;
+		margin: 5px 0;
+		transform: scale(.82) 
+	}
+	:global(.rdtBtn:hover) {
+		opacity: .82;
+	}
+}
+
+:global(.pagination) {
+	&, li, a, span {
+		border-radius: 0 !important;
+	}
+	
+}
+
+:global(.form-group) {
+	outline: none;
+}
+:global(.form-control:focus) {
+	box-shadow: none;
+}

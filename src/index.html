@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9,edge">
+<title><%= htmlWebpackPlugin.options.title %></title>
+<!--[if lte IE 9]>
+<script src="https://cdn.staticfile.org/babel-polyfill/7.0.0-alpha.3/polyfill.min.js"></script>
+<script src="https://cdn.staticfile.org/es5-shim/4.5.9/es5-shim.min.js"></script>
+<script src="https://cdn.staticfile.org/es5-shim/4.5.9/es5-sham.min.js"></script>
+<script src="https://cdn.staticfile.org/es6-shim/0.35.3/es6-shim.min.js"></script>
+<script src="https://cdn.staticfile.org/es6-shim/0.35.3/es6-sham.min.js"></script>
+<script src="https://cdn.staticfile.org/json3/3.3.2/json3.min.js"></script>
+<script src="https://cdn.staticfile.org/classlist/2014.01.31/classList.min.js"></script>
+<script src="https://cdn.staticfile.org/selectivizr/1.0.2/selectivizr-min.js"></script>
+<script src="https://cdn.staticfile.org/history.js/1.8/bundled-uncompressed/html5/native.history.js"></script>
+<script>
+window._isOldIE = true;
+//History.pushState = function(data, title, path) {location.href = path;};
+window.__defineGetter__('history', function(){return History});
+</script>
+<![endif]-->
+<script>
+(function() {
+var _isIE = /Trident\/(\d+)/i.exec(navigator.userAgent);
+var _gteIE10 = _isIE && parseInt(_isIE[1])>5;
+if (_gteIE10) {
+	var s = document.createElement('script');
+	document.head.appendChild(s);
+	s.src = "https://cdn.staticfile.org/es6-shim/0.35.3/es6-shim.min.js";
+};
+}())
+</script>
+</head>
+<body>
+	<!--[if lte IE 9]>
+	<div class="alert alert-danger" role="alert" style="margin-bottom: 0; text-align: center;" id="oldIENoticeBox">您的浏览器过于老旧，推荐您使用<a style="text-decoration: underline" href="http://rj.baidu.com/search/index/?kw=%25E8%25B0%25B7%25E6%25AD%258C%25E6%25B5%258F%25E8%25A7%2588%25E5%2599%25A8">最新版chrome浏览器</a>以达到最佳效果</div>
+	<![endif]-->
+	<div id="root"></div>
+</body>
+</html>

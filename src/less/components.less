@@ -1,0 +1,193 @@
+/*********************************** global components ***********************************/
+@import 'vars.less';
+@import 'z-index.less';
+
+:global .tooltip {
+	@bg: #2C303B;
+
+	display: inline-block;
+    position: relative;
+    text-decoration: none;
+    opacity: 1;
+    text-indent: -9999rem;
+    width: 18px;
+    height: 18px;
+    background: url('../images/hit.svg') no-repeat 50% 50%;
+    background-size: contain;
+    margin-left: 2px;
+    z-index: @z-index-0;
+
+    &::after {
+	    content: attr(data-tooltip);
+	    bottom: 27px;
+	    background: @bg;
+	    color: @color-blank;
+	    padding: 5px 15px;
+	    white-space: nowrap;
+	    text-indent: 0;
+	    box-shadow: 0 1px 0 #2d303a;
+	}
+	&::before {
+		content: '';
+		bottom: 20px;
+		display: inline-block;
+		border-style: solid;
+		border-width: 3px 5px;
+		border-color: @bg @bg transparent transparent;
+
+	}
+	&::after,
+	&::before {
+	    display: inline-block;
+	    right: 10px;
+		position: absolute;
+		opacity: 0;
+	    transition: all 0.5s ease;
+	}
+	&:hover::before,
+	&:hover::after {
+	    opacity: 1;
+	}
+}
+
+.form-input,
+:global(.form-input) {
+	.font-normal;
+	color: @color-c7;
+	background-color: @color-blank;
+	border: 1px solid @color-c7;
+	border-radius: 0;
+
+	&:hover {
+		background-color: @color-c9;
+		color: @color-c5;
+		border-color: @color-c7;
+	}
+	&:focus {
+		color: @color-c5;
+		border-color: @color-c1;
+	}
+}
+
+.form-select,
+:global(.form-select) {
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+	background-color: @color-blank;
+	border: 1px solid @color-c7;
+	position: relative;
+
+	&::after:extend(.dropdownAfterInput) {
+		content: '';
+		z-index: @z-index-2;
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+
+	:global(.dropdown)>button,
+	select {
+		.form-input;
+		background: transparent;
+		box-shadow: none; //inset 0 1px 1px rgba(0,0,0,.075);
+		border-radius: 0;
+		border-color: @color-c7;
+		border: none;
+		outline: none; //1px solid @color-c7;
+		height: 32px;
+		padding-right: 28px;
+		cursor: pointer;
+		-webkit-appearance: none;
+	    -moz-appearance: none;
+	}
+	:global(.dropdown)>button {
+		height: 32px;
+		:global(.caret) {
+			display: none;
+		}
+	}
+	select::-ms-expand {
+	    display: none;
+	}
+}
+
+.dropdownAfterInput,
+:global(.dropdownAfterInput) {
+	display: inline-block;
+	height: 32px;
+	width: 18px;
+	border-left: 1px solid @color-c7;
+	background-color: @color-c9;
+	background-image: url('../images/xiala2.svg');
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	background-size: 10px 10px;
+	pointer-events: none;
+}
+
+.border-l() {
+	border-left: 1px solid @color-c10;
+	&:first-child {
+		border-left: none;
+	}
+}
+.th-padding() {
+	// box-sizing: border-box;
+	padding: 8px 12px;
+	line-height: 20px;
+}
+
+:global .app_table {
+	tr:hover td {
+		background-color: #FBFAF4;
+	}
+	th {
+		background-color: #F7F9FB;
+		.font-title-small;
+		text-align: left;
+		.border-l();
+		.th-padding();
+		white-space: nowrap;
+
+		&[colspan] {
+			text-align: center;
+			border-bottom: 1px solid @color-c10;
+		}
+
+		&:empty {
+			border-left: none;
+		}
+	}
+	td {
+		@ptb: 16px;
+
+		.th-padding();
+		padding-top: @ptb;
+		padding-bottom: @ptb;
+		border-bottom: 1px solid @color-c9;
+		white-space: nowrap;
+
+		a {
+			color: @color-link;
+			text-decoration: none;
+			margin-right: 10px;
+		}
+		.warn {
+			color: red;
+		}
+	}
+}
+
+:global .app_table_filter {
+	margin: 25px 0 9px;
+
+	.form-group {
+		margin-right: 5px;
+
+		input[type=text],
+		input[type=tel],
+		input[type=number] {
+			width: 140px;
+			box-sizing: border-box;
+		}
+	}
+}

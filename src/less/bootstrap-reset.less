@@ -1,0 +1,134 @@
+/*********************************** bootstrap ***********************************/
+:global {
+	.btn {
+		border-radius: 0;
+		border: none;
+		height: 34px;
+		box-sizing: border-box;
+		min-width: 60px;
+		&:focus {
+			outline:0 none;
+		}
+	}
+	.btn-default {
+		background-color: @color-c9;
+		color: @color-c1;
+
+		&:hover,
+		&:focus,
+		&:hover>a,
+		&:focus>a {
+			background-color: @color-c71;
+			color: @color-c1-hover;
+			text-decoration: none;
+		}
+	}
+	.btn-primary {
+		background-color: @color-c1;
+		color: @color-c10;
+
+		&:hover,
+		&:focus,
+		&:active,
+		&:active:hover,
+		&:active:focus,
+		&:hover>a,
+		&:focus>a {
+			background-color: @color-c1;
+			color: @color-c10-hover;
+			text-decoration: none;
+		}
+	}
+	.nav-tabs {
+		background-color:  @color-bg;
+		border: none;
+		padding-left: 1px;
+		.font-title-big;
+
+		>li {
+			height: 42px;
+			border: none;
+			display: flex;
+			align-items: center;
+			justify-content: flex-end;
+			position: relative;
+
+			&::after {
+				position: absolute; //IE fallback
+				right: 0;
+				top: 50%;
+				transform: translateY(-6px);
+
+				content: '';
+				display: inline-block;
+				width: 1px;
+				height: 12px;
+				line-height: 0;
+				font-style: 0;
+				background-color: @color-c7;
+			}
+			&.active::after,
+			&:last-child::after {
+				display: none;
+			}
+			>a,
+			>a:hover,
+			>a:active {
+				margin-right: 0;
+				margin-left: -1px;
+				border: none;
+				background-color: transparent;
+				border-radius: 0;
+			}
+			&.active {
+				>a,
+				>a:hover {
+					color: @color-c1;
+					border: none;
+				}
+			}
+		}
+	}
+
+	.pagination {
+		>li,
+		>li.disabled {
+			>span,
+			>a {
+				.font-title-small;
+				color: @color-c5;
+				border-color: @color-c7;
+			}
+		}
+		>li {
+			>a:hover,
+			>a:focus {
+				background-color: @color-blank;
+				color: @color-c1;
+			}
+		}
+		>li.active {
+			>a,
+			>a:hover,
+			>a:focus {
+				background-color: @color-c9;
+				color: @color-c4;
+				font-weight: bold;
+				border-color: @color-c7;
+			}
+		}
+	}
+
+	.control-label {
+		font-weight: normal;
+		white-space: nowrap;
+		direction: rtl;
+		padding-right: 0;
+	}
+
+	.radio-inline,
+	.checkbox-inline {
+		margin-right: 30px
+	}
+
+} //end of :global
